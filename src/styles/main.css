@@ -290,6 +290,8 @@ button {
   gap: clamp(1.25rem, 3vw, 2.5rem);
   display: flex;
   overflow: hidden;
+  padding: 6px 0;
+  margin: -6px 0;
 }
 
 .site-nav a {
