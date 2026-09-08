@@ -1,0 +1,254 @@
+<article class="cs" style="--accent: #4a7cff;">
+  <header class="cs-head container">
+    <a class="cs-back link" href="/" data-back>← Work</a>
+    <h1 class="cs-title">
+      <span class="sr-only">Lentera, an iOS companion that reads, sees and walks with you.</span>
+      <span aria-hidden="true">
+        <span class="cs-title-line"><span class="cs-title-inner">Lentera</span></span>
+        <span class="cs-title-line"><span class="cs-title-inner">read · see · walk</span></span>
+      </span>
+    </h1>
+    <p class="cs-summary">A native iOS companion for blind and low-vision users. It reads text, recognises objects and detects obstacles through the camera, and speaks everything back in Indonesian.</p>
+    <dl class="cs-facts">
+      <div>
+        <dt class="label">Client</dt>
+        <dd>Personal project</dd>
+      </div>
+      <div>
+        <dt class="label">Role</dt>
+        <dd>iOS Developer &amp; AI Engineer</dd>
+      </div>
+      <div>
+        <dt class="label">With</dt>
+        <dd>Swift, SwiftUI, Google Gemini, Vision</dd>
+      </div>
+      <div>
+        <dt class="label">Year</dt>
+        <dd>2026</dd>
+      </div>
+    </dl>
+  </header>
+
+  <div class="cs-visual cs-visual-bleed cs-reveal">
+    <figure class="cv">
+      <svg class="cv-svg" viewBox="0 0 1200 470" role="img" aria-label="Pipeline diagram: one shared camera session feeds Gemini, which describes text, objects and obstacles, spoken back in Indonesian, with on-device OCR as an offline fallback for text.">
+        <text class="cv-micro cv-dim" x="44" y="64">LENTERA · LIVE CAMERA PIPELINE</text>
+        <line class="cv-rule" x1="44" y1="84" x2="1156" y2="84" data-draw-len="1112" style="stroke-dasharray: 1112; stroke-dashoffset: 1112;"></line>
+
+        <!-- camera -->
+        <g>
+          <rect class="cv-node cv-node-key" x="44" y="120" width="250" height="160" rx="6"></rect>
+          <circle class="cv-state cv-state-ok" cx="76" cy="152" r="5"></circle>
+          <text class="cv-micro" x="100" y="157">CAMERA</text>
+          <text class="cv-micro cv-dim" x="76" y="204">SHARED AVFOUNDATION</text>
+          <text class="cv-micro cv-dim" x="76" y="230">ONE CAPTURE SESSION</text>
+        </g>
+
+        <!-- connector -->
+        <path class="cv-link-accent" d="M 302 200 L 372 200" data-draw-len="70" style="stroke-dasharray: 70; stroke-dashoffset: 70;"></path>
+
+        <!-- gemini -->
+        <g>
+          <rect class="cv-node cv-node-hot" x="380" y="95" width="440" height="210" rx="8"></rect>
+          <text class="cv-micro cv-accent" x="408" y="142">GOOGLE GEMINI · MULTIMODAL</text>
+          <text class="cv-micro" x="408" y="196">READS CAMERA FRAMES</text>
+          <text class="cv-micro cv-dim" x="408" y="222">RECONSTRUCTS READING ORDER</text>
+          <text class="cv-micro cv-dim" x="408" y="248">DESCRIBES OBJECTS AND PATH</text>
+          <text class="cv-micro cv-dim" x="408" y="274">SHORT, SPOKEN SENTENCES</text>
+        </g>
+
+        <!-- connector -->
+        <path class="cv-link-accent" d="M 828 200 L 898 200" data-draw-len="70" style="stroke-dasharray: 70; stroke-dashoffset: 70;"></path>
+
+        <!-- speech -->
+        <g>
+          <rect class="cv-node cv-node-key" x="906" y="120" width="250" height="160" rx="6"></rect>
+          <circle class="cv-state cv-state-ok" cx="938" cy="152" r="5"></circle>
+          <text class="cv-micro" x="962" y="157">SPEECH</text>
+          <text class="cv-micro cv-dim" x="938" y="204">AVSPEECHSYNTHESIZER</text>
+          <text class="cv-micro cv-dim" x="938" y="230">INDONESIAN TTS</text>
+        </g>
+
+        <!-- offline fallback -->
+        <path class="cv-link" d="M 600 305 L 600 372" data-draw-len="67" style="stroke-dasharray: 67; stroke-dashoffset: 67;"></path>
+        <g>
+          <rect class="cv-node" x="440" y="380" width="320" height="72" rx="8"></rect>
+          <text class="cv-micro" x="466" y="410">VISION OCR · OFFLINE FALLBACK</text>
+          <text class="cv-micro cv-dim" x="466" y="434">TEXT READING WITHOUT NETWORK</text>
+        </g>
+      </svg>
+      <figcaption class="cv-caption">The pipeline: one camera session feeding text, object and obstacle understanding, spoken back in Indonesian.</figcaption>
+    </figure>
+  </div>
+
+  <section class="cs-block container">
+    <h2 class="label cs-reveal">Context</h2>
+    <div class="cs-prose">
+      <p class="cs-reveal">Every phone is full of screens, and screens assume sight. A blind user still reaches for a phone for its camera, its GPS and its voice assistant, but mainstream camera apps are built around a viewfinder the user cannot see.</p>
+      <p class="cs-reveal">Lentera turns the camera into a narrator. Point it at text, at an object or at the path ahead, and the phone describes what it finds in Indonesian, the language it was built around.</p>
+      <p class="cs-reveal">Lentera means lantern. The app works like one: it does not replace vision, it lights the way forward.</p>
+    </div>
+  </section>
+
+  <section class="cs-block container">
+    <h2 class="label cs-reveal">The problem</h2>
+    <div class="cs-prose">
+      <p class="cs-reveal">Reading a paragraph of scanned text requires the reading order to be right. Recognising an object requires a concise description, not a list of labels. Walking requires a sense of distance, not just names.</p>
+      <p class="cs-reveal">Three different jobs through one lens. The same camera frames have to feed all of them, instantly, without draining the battery or forcing the user to juggle separate apps.</p>
+    </div>
+  </section>
+
+  <section class="cs-quote container cs-reveal">
+    <blockquote>The screen is optional when the camera can speak.</blockquote>
+  </section>
+
+  <div class="cs-visual container cs-reveal">
+    <figure class="cv">
+      <svg class="cv-svg" viewBox="0 0 1200 430" role="img" aria-label="Three assistive modes, text, objects and obstacles, all served by one shared camera session.">
+        <text class="cv-micro cv-dim" x="30" y="52">THREE MODES · ONE LENS</text>
+        <line class="cv-rule" x1="30" y1="72" x2="1170" y2="72" data-draw-len="1140" style="stroke-dasharray: 1140; stroke-dashoffset: 1140;"></line>
+        <g>
+          <rect class="cv-node cv-node-hot" x="30" y="104" width="360" height="92" rx="6"></rect>
+          <text class="cv-micro cv-accent" x="54" y="136">01 · TEXT READING</text>
+          <text class="cv-micro cv-dim" x="54" y="162">POINT AT A PAGE</text>
+          <text class="cv-micro cv-dim" x="54" y="184">THE WORDS ARE READ BACK IN ORDER</text>
+        </g>
+        <g>
+          <rect class="cv-node" x="420" y="104" width="360" height="92" rx="6"></rect>
+          <text class="cv-micro" x="444" y="136">02 · OBJECT RECOGNITION</text>
+          <text class="cv-micro cv-dim" x="444" y="162">POINT AT A THING</text>
+          <text class="cv-micro cv-dim" x="444" y="184">ONE CONCISE SPOKEN DESCRIPTION</text>
+        </g>
+        <g>
+          <rect class="cv-node" x="810" y="104" width="360" height="92" rx="6"></rect>
+          <text class="cv-micro" x="834" y="136">03 · OBSTACLE DETECTION</text>
+          <text class="cv-micro cv-dim" x="834" y="162">POINT AT THE PATH</text>
+          <text class="cv-micro cv-dim" x="834" y="184">WHAT IS AHEAD, WALKABLE OR NOT</text>
+        </g>
+
+        <line class="cv-rule" x1="30" y1="236" x2="1170" y2="236" data-draw-len="1140" style="stroke-dasharray: 1140; stroke-dashoffset: 1140;"></line>
+        <g>
+          <rect class="cv-node cv-node-hot" x="30" y="256" width="1140" height="60" rx="8"></rect>
+          <text class="cv-micro cv-accent" x="600" y="292" text-anchor="middle">ONE SHARED AVFOUNDATION SESSION · REUSED ACROSS ALL THREE MODES</text>
+        </g>
+        <g>
+          <rect class="cv-node" x="30" y="336" width="1140" height="60" rx="8"></rect>
+          <text class="cv-micro cv-dim" x="600" y="372" text-anchor="middle">READER FIRST · VOICEOVER, DYNAMIC TYPE AND INDONESIAN TEXT TO SPEECH</text>
+        </g>
+      </svg>
+      <figcaption class="cv-caption">Three jobs, one lens. The modes share a single camera session so switching stays instant and light.</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-visual container cs-reveal">
+    <div class="c-carousel" data-carousel>
+      <div class="c-viewport">
+        <div class="c-track">
+          <figure class="c-slide" data-slide="0"><img src="/work/lentera-1.jpeg" alt="Lentera screenshot" loading="lazy" draggable="false" /></figure>
+          <figure class="c-slide" data-slide="1"><img src="/work/lentera-2.jpeg" alt="Lentera screenshot" loading="lazy" draggable="false" /></figure>
+          <figure class="c-slide" data-slide="2"><img src="/work/lentera-3.jpeg" alt="Lentera screenshot" loading="lazy" draggable="false" /></figure>
+          <figure class="c-slide" data-slide="3"><img src="/work/lentera-4.jpeg" alt="Lentera screenshot" loading="lazy" draggable="false" /></figure>
+        </div>
+      </div>
+      <div class="c-ui">
+        <button type="button" class="c-btn" data-prev aria-label="Previous"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="c-nav">
+          <div class="c-dots">
+            <button type="button" class="c-dot is-active" data-dot="0" aria-label="Go to slide 1"></button>
+            <button type="button" class="c-dot" data-dot="1" aria-label="Go to slide 2"></button>
+            <button type="button" class="c-dot" data-dot="2" aria-label="Go to slide 3"></button>
+            <button type="button" class="c-dot" data-dot="3" aria-label="Go to slide 4"></button>
+          </div>
+          <span class="c-count" aria-live="polite"></span>
+        </div>
+        <button type="button" class="c-btn" data-next aria-label="Next"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <figcaption class="cv-caption">Screenshots from Lentera running on iPhone.</figcaption>
+  </div>
+
+  <section class="cs-block container">
+    <h2 class="label cs-reveal">What I built</h2>
+    <ol class="cs-work">
+      <li class="cs-work-item cs-reveal">
+        <span class="cs-work-index">01</span>
+        <div>
+          <h3 class="cs-work-title">Three assistive modes on one camera</h3>
+          <p>Text reading, object recognition and obstacle detection share one AVFoundation camera session. Reusing the session keeps resource overhead low and switching between modes nearly instant.</p>
+        </div>
+      </li>
+      <li class="cs-work-item cs-reveal">
+        <span class="cs-work-index">02</span>
+        <div>
+          <h3 class="cs-work-title">A multimodal understanding pipeline</h3>
+          <p>Google Gemini reads camera frames, reconstructs a correct reading order for scanned text, and turns scenes into short spoken descriptions instead of raw labels.</p>
+        </div>
+      </li>
+      <li class="cs-work-item cs-reveal">
+        <span class="cs-work-index">03</span>
+        <div>
+          <h3 class="cs-work-title">On-device OCR as an offline fallback</h3>
+          <p>Text is the most common need, so it also works without a network. The Vision framework reads the frame on device when there is no signal.</p>
+        </div>
+      </li>
+      <li class="cs-work-item cs-reveal">
+        <span class="cs-work-index">04</span>
+        <div>
+          <h3 class="cs-work-title">A screen-reader-first interface</h3>
+          <p>Full VoiceOver support, Dynamic Type, and Indonesian output through AVSpeechSynthesizer. Accessibility is the interface, not a mode.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="cs-block container">
+    <h2 class="label cs-reveal">Decisions</h2>
+    <dl class="cs-decisions">
+      <div class="cs-decision cs-reveal">
+        <dt>Why describe instead of listing labels?</dt>
+        <dd>A screen reader user does not want to inspect five labels. One accurate spoken sentence is faster to understand and less tiring to hear.</dd>
+      </div>
+      <div class="cs-decision cs-reveal">
+        <dt>Why keep an offline OCR path?</dt>
+        <dd>Cafes, streets and hospital corridors are not reliably online. Text reading is the most common need, so it is the one mode that must survive without a signal.</dd>
+      </div>
+      <div class="cs-decision cs-reveal">
+        <dt>Why one camera session for three modes?</dt>
+        <dd>Starting and stopping capture between modes costs time and battery. One shared session makes switching feel immediate and keeps the phone cool.</dd>
+      </div>
+      <div class="cs-decision cs-reveal">
+        <dt>Why Indonesian first?</dt>
+        <dd>The app was built for Indonesian users, so speech and labels live in Indonesian from the start rather than being bolted on later.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="cs-results container">
+    <h2 class="label cs-reveal">In one glance</h2>
+    <ul class="cs-outcomes">
+      <li class="cs-outcome cs-reveal">
+        <span class="cs-outcome-value">3</span>
+        <span class="cs-outcome-label">assistive modes on a single shared camera session</span>
+      </li>
+      <li class="cs-outcome cs-reveal">
+        <span class="cs-outcome-value">VO</span>
+        <span class="cs-outcome-label">full VoiceOver and Dynamic Type support, screen-reader-first</span>
+      </li>
+      <li class="cs-outcome cs-reveal">
+        <span class="cs-outcome-value">ID</span>
+        <span class="cs-outcome-label">Indonesian output through AVSpeechSynthesizer</span>
+      </li>
+    </ul>
+    <div class="cs-closing">
+      <p class="cs-reveal">Lentera is a personal project, so the real constraint was honesty: keep the scope tight enough to finish, and make accessibility the default rather than a setting.</p>
+      <p class="cs-reveal">Everything here is my own account of the work. The app runs on a real device and speaks its results in Indonesian.</p>
+    </div>
+  </section>
+
+  <nav class="cs-next container" aria-label="Next project">
+    <a class="cs-next-link" href="/work/people-counting" data-label="People Counting" data-accent="#40c8b8">
+      <span class="label">Next</span>
+      <span class="cs-next-title">People Counting System</span>
+    </a>
+  </nav>
+</article>
