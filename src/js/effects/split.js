@@ -35,6 +35,8 @@ export function splitWordsChars(root, wordClass = 'word', charClass = 'char') {
         }
         node.replaceWith(frag)
       } else if (node.nodeType === Node.ELEMENT_NODE) {
+        // the rotating typewriter region is managed separately
+        if (node.classList && node.classList.contains('typed-wrap')) continue
         walk(node)
       }
     }

@@ -344,9 +344,10 @@ export function initHeroField(canvas) {
   }
 
   sizeCanvas()
+  // Ambient field only: the accent word is now typed by the DOM (no particle
+  // condensation), so nothing morphs and the <em> stays visible.
   const ready = () => {
     sizeCanvas()
-    fadeTimer = setTimeout(beginMorph, 1800)
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready)
   else setTimeout(ready, 300)
@@ -408,7 +409,6 @@ export function initHeroField(canvas) {
 
   const onResize = () => {
     sizeCanvas()
-    if (morphing) sampleGlyph()
   }
   window.addEventListener('resize', onResize)
 

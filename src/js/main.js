@@ -1,6 +1,7 @@
 import '../styles/main.css'
 import { initPointer } from './app/pointer.js'
 import { initSmoothScroll } from './app/smooth.js'
+import { initNavbar } from './app/navbar.js'
 import { initRouter } from './app/router.js'
 
 // App shell — persistent chrome around the routed <main>.
@@ -13,8 +14,6 @@ function mountShell() {
       <nav class="site-nav" aria-label="Primary">
         <a class="link" href="/#work">Work</a>
         <a class="link" href="/#about">About</a>
-        <a class="link" href="/#research">Research</a>
-        <a class="link" href="/#certification">Certification</a>
         <a class="link" href="/#contact">Contact</a>
       </nav>
     </header>
@@ -25,6 +24,7 @@ function mountShell() {
 function boot() {
   mountShell()
   initSmoothScroll()
+  initNavbar()
   initPointer()
   initRouter()
 }
