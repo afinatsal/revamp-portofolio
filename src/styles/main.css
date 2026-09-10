@@ -295,7 +295,6 @@ button {
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   backdrop-filter: blur(18px) saturate(150%);
   border: 1px solid var(--line);
-  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
 }
 
 /* right cluster: nav links + light/dark toggle */
@@ -306,7 +305,10 @@ button {
 }
 
 .theme-toggle {
-  flex: none;
+  position: fixed;
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  right: clamp(0.75rem, 2.5vw, 2.25rem);
+  z-index: 45;
   width: 34px;
   height: 34px;
   border-radius: 999px;
@@ -315,6 +317,7 @@ button {
   justify-content: center;
   color: var(--ink-dim);
   border: 1px solid var(--line);
+  background: var(--glass);
   transition:
     color var(--dur-fast) var(--ease-out-expo),
     border-color var(--dur-fast) var(--ease-out-expo),
@@ -382,9 +385,6 @@ html.light .theme-toggle .tt-moon {
     flex: 1 1 100%;
     gap: 0.6rem 0.9rem;
     flex-wrap: wrap;
-  }
-  .theme-toggle {
-    margin-left: auto;
   }
   .site-nav a {
     letter-spacing: 0.06em;
