@@ -309,13 +309,13 @@ button {
   top: clamp(0.75rem, 2vw, 1.5rem);
   right: clamp(0.75rem, 2.5vw, 2.25rem);
   z-index: 45;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink-dim);
+  color: var(--ink);
   border: 1px solid var(--line);
   background: var(--glass);
   transition:
@@ -324,9 +324,14 @@ button {
     background-color var(--dur-fast) var(--ease-out-expo);
 }
 
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-  color: var(--ink);
+  color: var(--accent);
   border-color: var(--ink);
 }
 
