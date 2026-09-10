@@ -222,9 +222,15 @@ export function initHeroField(canvas) {
   const uTouchAmp = U('uTouchAmp')
   const uDpr = U('uDpr')
 
-  const css = getComputedStyle(document.documentElement)
-  gl.uniform3fv(U('uInk'), hexToRgb(css.getPropertyValue('--ink') || '#f5f0eb'))
-  gl.uniform3fv(U('uAccentCol'), hexToRgb(css.getPropertyValue('--accent') || '#ff5c28'))
+  const uInkLoc = U('uInk')
+  const uAccentLoc = U('uAccentCol')
+  const applyThemeColors = () => {
+    const css = getComputedStyle(document.documentElement)
+    gl.uniform3fv(uInkLoc, hexToRgb(css.getPropertyValue('--ink') || '#f5f0eb'))
+    gl.uniform3fv(uAccentLoc, hexToRgb(css.getPropertyValue('--accent') || '#ff5c28'))
+  }
+  applyThemeColors()
+  window.addEventListener('afin:theme', applyThemeColors)
 
   gl.enable(gl.BLEND)
   gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
@@ -429,6 +435,7 @@ export function initHeroField(canvas) {
       window.removeEventListener('pointerdown', onTouch)
       window.removeEventListener('pointermove', onTouch)
       window.removeEventListener('resize', onResize)
+      window.removeEventListener('afin:theme', applyThemeColors)
       document.removeEventListener('visibilitychange', onVis)
       io.disconnect()
       canvas.removeEventListener('webglcontextlost', onLost)
