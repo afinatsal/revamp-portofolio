@@ -10,6 +10,20 @@ export function initTheme() {
   const btn = document.querySelector('.theme-toggle')
   if (!btn) return
 
+  // keep the toggle vertically centered with the navbar pill
+  const align = () => {
+    const header = document.querySelector('.site-header')
+    if (!header) return
+    const cy = header.getBoundingClientRect().top + header.offsetHeight / 2
+    btn.style.top = `${cy - btn.offsetHeight / 2}px`
+  }
+  align()
+  let rt = null
+  window.addEventListener('resize', () => {
+    clearTimeout(rt)
+    rt = setTimeout(align, 100)
+  })
+
   const setMeta = (light) => {
     const meta = document.querySelector('meta[name="theme-color"]')
     if (meta) meta.setAttribute('content', light ? '#ffffff' : '#000000')
